@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelPack">
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".AddTripActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
