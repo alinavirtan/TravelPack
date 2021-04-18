@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TravelPack</string>
+    <string name="login">login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="new_user_register_now"> "Don't have an Account? Sign Up" </string>
+    <string name="or">OR</string>
+    <string name="google_icon">google</string>
+    <string name="facebook_icon">facebook</string>
+    <string name="member_sign_in">Already have an account? Sign in</string>
+    <string name="signup">Sign up</string>
+</resources>

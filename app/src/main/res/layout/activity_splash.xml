@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="@color/white"
+    tools:context="com.example.travelpack.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/image2" />
+
+    <ProgressBar
+        android:id="@+id/my_progress_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:indeterminate="true"
+        android:translationY="600dp"
+        android:indeterminateTint="#00BFFF"
+        style="?android:attr/progressBarStyleHorizontal" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_progress_bar"
+        android:layout_marginTop="532dp"
+        android:gravity="center"
+        android:text="loading..."
+        android:textColor="#1E90FF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="50dp" />
+</RelativeLayout>
