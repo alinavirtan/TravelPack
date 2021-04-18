@@ -10,4 +10,5 @@
     <string name="facebook_icon">facebook</string>
     <string name="member_sign_in">Already have an account? Sign in</string>
     <string name="signup">Sign up</string>
+    <string name="name">Name</string>
 </resources>
