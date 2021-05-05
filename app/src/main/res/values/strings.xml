@@ -11,4 +11,9 @@
     <string name="member_sign_in">Already have an account? Sign in</string>
     <string name="signup">Sign up</string>
     <string name="name">Name</string>
+    <string name="destination">Destination</string>
+    <string name="date">Date of travel</string>
+    <string name="addTrip">Add Trip</string>
+    <string name="apiKey">AIzaSyAfle75N_uj8IJH7QD6Ny1lJxP-B834Bjo</string>
+
 </resources>

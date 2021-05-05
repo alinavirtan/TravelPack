@@ -1,18 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/topView_trip"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary"
+        android:translationY="-90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageRegister"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:src="@drawable/register_page"-->
+    <!--        android:translationY="-120dp"-->
+    <!--        tools:layout_editor_absoluteX="0dp"-->
+    <!--        tools:layout_editor_absoluteY="-161dp" />-->
+
+    <View
+        android:id="@+id/view_trip"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/wave"
+        android:translationY="-100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topView_trip" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
+        android:id="@+id/topText_trip"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add your trip here"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="327dp" />
-</RelativeLayout>
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="40dp"
+        android:text="Add your trip"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:translationY="-20dp"
+        app:layout_constraintEnd_toEndOf="@+id/topView_trip"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/topView_trip"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="32dp" />
+
+    <EditText
+        android:id="@+id/inputDestination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/round_border"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="@string/destination"
+        android:inputType="textAutoComplete"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/ic_location"
+        android:translationY="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/topView_trip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topText_trip"
+        app:layout_constraintVertical_bias="0.621"
+        android:autofillHints="destination" />
+
+    <EditText
+        android:id="@+id/inputDate1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/round_border"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="@string/date"
+        android:inputType="textAutoComplete"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:padding="16dp"
+        android:translationY="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputDestination"
+        app:layout_constraintVertical_bias="0.621"
+        android:autofillHints="date" />
+
+    <Button
+        android:id="@+id/btnAddTrip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_bg"
+        android:text="@string/addTrip"
+        android:clickable="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputDate1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
