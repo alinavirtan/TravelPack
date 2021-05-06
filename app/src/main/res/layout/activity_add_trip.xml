@@ -100,12 +100,63 @@
         app:layout_constraintVertical_bias="0.621"
         android:autofillHints="date" />
 
+    <TextView
+        android:id="@+id/textDays"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="  Length of stay"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/ic_nights"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputDate1"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="32dp" />
+
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:max="30"
+        android:progress="0"
+        android:indeterminate="false"
+        android:progressBackgroundTint="@color/cardview_dark_background"
+        android:progressTint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDays"/>
+
+    <TextView
+        android:id="@+id/nrDays"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="0"
+        android:textColor="@color/purple_500"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"/>
+
     <Button
         android:id="@+id/btnAddTrip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_bg"
         android:text="@string/addTrip"
@@ -115,7 +166,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputDate1" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

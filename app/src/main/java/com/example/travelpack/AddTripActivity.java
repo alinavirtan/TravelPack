@@ -4,7 +4,10 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,12 +21,15 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class AddTripActivity extends AppCompatActivity {
     EditText editText;
     EditText date;
     DatePickerDialog.OnDateSetListener setListener;
+    SeekBar seekBar;
+    TextView nrOfDays;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,13 @@ public class AddTripActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.inputDestination);
         date = findViewById(R.id.inputDate1);
+        seekBar = findViewById(R.id.seekBar);
+        nrOfDays = findViewById(R.id.nrDays);
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         String apiKey = getString(R.string.apiKey);
         if (!Places.isInitialized()) {
@@ -51,6 +64,43 @@ public class AddTripActivity extends AppCompatActivity {
                         fieldList).build(AddTripActivity.this);
 
                 startActivityForResult(intent, 100);
+            }
+        });
+
+        date.setFocusable(false);
+        date.setKeyListener(null);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddTripActivity.this,
+                         new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                month = month + 1;
+                                String date_string = day + "/" + month + "/" + year;
+                                date.setText(date_string);
+                            }
+                        }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int val = progress * (seekBar.getWidth() -  2 * seekBar.getThumbOffset()) / seekBar.getMax();
+                nrOfDays.setText(progress + "");
+                nrOfDays.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
