@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckedTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -30,6 +31,8 @@ public class AddTripActivity extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener setListener;
     SeekBar seekBar;
     TextView nrOfDays;
+    CheckedTextView business;
+    CheckedTextView leisure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,15 @@ public class AddTripActivity extends AppCompatActivity {
         date = findViewById(R.id.inputDate1);
         seekBar = findViewById(R.id.seekBar);
         nrOfDays = findViewById(R.id.nrDays);
+        business = findViewById(R.id.business);
+        leisure = findViewById(R.id.leisure);
+
+        business.setCheckMarkDrawable(R.drawable.ic_circle);
+        leisure.setCheckMarkDrawable(R.drawable.ic_circle);
+
+        business.setChecked(false);
+        leisure.setChecked(false);
+
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -101,6 +113,36 @@ public class AddTripActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (business.isChecked()) {
+                    business.setCheckMarkDrawable(R.drawable.ic_circle);
+                    business.setChecked(false);
+                } else {
+                    business.setCheckMarkDrawable(R.drawable.ic_check);
+                    business.setChecked(true);
+                    leisure.setChecked(false);
+                    leisure.setCheckMarkDrawable(R.drawable.ic_circle);
+                }
+            }
+        });
+
+        leisure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (leisure.isChecked()) {
+                    leisure.setCheckMarkDrawable(R.drawable.ic_circle);
+                    leisure.setChecked(false);
+                } else {
+                    leisure.setCheckMarkDrawable(R.drawable.ic_check);
+                    leisure.setChecked(true);
+                    business.setChecked(false);
+                    business.setCheckMarkDrawable(R.drawable.ic_circle);
+                }
             }
         });
     }
