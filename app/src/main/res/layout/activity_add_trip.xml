@@ -16,14 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageRegister"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:src="@drawable/register_page"-->
-    <!--        android:translationY="-120dp"-->
-    <!--        tools:layout_editor_absoluteX="0dp"-->
-    <!--        tools:layout_editor_absoluteY="-161dp" />-->
 
     <View
         android:id="@+id/view_trip"
@@ -126,7 +118,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
-        android:max="30"
+        android:max="16"
         android:progress="0"
         android:indeterminate="false"
         android:progressBackgroundTint="@color/cardview_dark_background"

@@ -1,9 +1,14 @@
 package com.example.travelpack;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -14,13 +19,16 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -33,6 +41,8 @@ public class AddTripActivity extends AppCompatActivity {
     TextView nrOfDays;
     CheckedTextView business;
     CheckedTextView leisure;
+
+    LatLng latLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +99,7 @@ public class AddTripActivity extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 month = month + 1;
-                                String date_string = day + "/" + month + "/" + year;
+                                String date_string = dayOfMonth + "/" + month + "/" + year;
                                 date.setText(date_string);
                             }
                         }, year, month, day);
@@ -145,6 +155,28 @@ public class AddTripActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
+        // pentru WeatherAPI
+
+        Button addTripBtn = findViewById(R.id.btnAddTrip);
+
+        addTripBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // iau parametrii de care am nevoie
+                @SuppressLint("DefaultLocale") String formattedMonth = String.format("%02d", month + 1);
+                String startDate = year + "-" + formattedMonth + "-" + day;
+                //String cityName = editText.getText().toString().trim();
+                String daysNum = nrOfDays.getText().toString().trim();
+
+                WeatherData weatherRequest = new WeatherData(latLng, startDate, daysNum, getApplicationContext());
+                weatherRequest.ComputeRequest();
+            }
+        });
     }
 
     @Override
@@ -154,11 +186,40 @@ public class AddTripActivity extends AppCompatActivity {
             Place place = Autocomplete.getPlaceFromIntent(data);
 
             editText.setText(place.getName());
+
+            // pt weatherapi -> vreau sa iau coordonatele
+            Log.d("Address: ", editText.getText().toString());
+            latLng = getLatLngFromAddress(editText.getText().toString());
+            if (latLng != null) {
+                Log.d("Latitude, Longitude: ", "" + latLng.latitude + " " + latLng.longitude);
+            } else {
+                Log.d("Null coordinates!", "");
+            }
         } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
             Status status = Autocomplete.getStatusFromIntent(data);
 
             Toast.makeText(getApplicationContext(), status.getStatusMessage(),
                     Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private LatLng getLatLngFromAddress(String address) {
+        Geocoder geocoder = new Geocoder(AddTripActivity.this);
+        List<Address> addressList;
+
+        try {
+            addressList = geocoder.getFromLocationName(address, 1);
+            if (addressList != null) {
+                Address singleAddress = addressList.get(0);
+                LatLng latLng = new LatLng(singleAddress.getLatitude(), singleAddress.getLongitude());
+                return latLng;
+            } else {
+                return null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }
