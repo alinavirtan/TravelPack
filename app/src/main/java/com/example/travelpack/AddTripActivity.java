@@ -19,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -41,7 +40,6 @@ public class AddTripActivity extends AppCompatActivity {
     TextView nrOfDays;
     CheckedTextView business;
     CheckedTextView leisure;
-
     LatLng latLng;
 
     @Override
@@ -175,6 +173,9 @@ public class AddTripActivity extends AppCompatActivity {
 
                 WeatherData weatherRequest = new WeatherData(latLng, startDate, daysNum, getApplicationContext());
                 weatherRequest.ComputeRequest();
+
+                Intent intent = new Intent(AddTripActivity.this, SelectActivities.class);
+                startActivity(intent);
             }
         });
     }
