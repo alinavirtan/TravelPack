@@ -1,6 +1,5 @@
 package com.example.travelpack;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.location.Address;
@@ -47,6 +46,7 @@ public class AddTripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trip);
 
+        (MainActivity.activities).clear();
         editText = findViewById(R.id.inputDestination);
         date = findViewById(R.id.inputDate1);
         seekBar = findViewById(R.id.seekBar);
@@ -59,7 +59,6 @@ public class AddTripActivity extends AppCompatActivity {
 
         business.setChecked(false);
         leisure.setChecked(false);
-
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -76,7 +75,7 @@ public class AddTripActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                (MainActivity.activities).clear();
                 List<Place.Field> fieldList = Arrays.asList(Place.Field.ID,
                         Place.Field.NAME);
 
@@ -154,28 +153,34 @@ public class AddTripActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         // pentru WeatherAPI
 
         Button addTripBtn = findViewById(R.id.btnAddTrip);
-
         addTripBtn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                // iau parametrii de care am nevoie
-                @SuppressLint("DefaultLocale") String formattedMonth = String.format("%02d", month + 1);
-                String startDate = year + "-" + formattedMonth + "-" + day;
-                //String cityName = editText.getText().toString().trim();
-                String daysNum = nrOfDays.getText().toString().trim();
+                if (!business.isChecked() && !leisure.isChecked()) {
+                    Toast.makeText(AddTripActivity.this, "Select trip type", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                    // iau parametrii de care am nevoie
+//                @SuppressLint("DefaultLocale") String formattedMonth = String.format("%02d", month + 1);
+//                String startDate = year + "-" + formattedMonth + "-" + day;
+//                //String cityName = editText.getText().toString().trim();
+//                String daysNum = nrOfDays.getText().toString().trim();
+//
+//                WeatherData weatherRequest = new WeatherData(latLng, startDate, daysNum, getApplicationContext());
+//                weatherRequest.ComputeRequest();
 
-                WeatherData weatherRequest = new WeatherData(latLng, startDate, daysNum, getApplicationContext());
-                weatherRequest.ComputeRequest();
+                if (business.isChecked()) {
+                    Intent intent = new Intent(AddTripActivity.this, SelectBusinessActivities.class);
+                    startActivity(intent);
+                }
 
-                Intent intent = new Intent(AddTripActivity.this, SelectActivities.class);
-                startActivity(intent);
+                if (leisure.isChecked()) {
+                    Intent intent = new Intent(AddTripActivity.this, SelectLeisureActivities.class);
+                    startActivity(intent);
+                }
             }
         });
     }

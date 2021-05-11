@@ -47,6 +47,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Swimming"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -83,6 +84,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/SnowSports"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -100,7 +102,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="Snow sports"
+                        android:text="Snow Sports"
                         android:textAlignment="center"
                         android:layout_gravity="center_horizontal"
                         android:textColor="@android:color/black"
@@ -120,6 +122,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Camping"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -155,6 +158,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Gym"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -192,6 +196,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Beach"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -227,6 +232,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Photography"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -264,6 +270,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Hiking"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -299,6 +306,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Running"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -336,6 +344,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Party"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -371,6 +380,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/FancyDinner"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -388,7 +398,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="fancy_dinner"
+                        android:text="Fancy Dinner"
                         android:textAlignment="center"
                         android:layout_gravity="center_horizontal"
                         android:textColor="@android:color/black"
@@ -408,6 +418,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Working"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -443,6 +454,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Baby"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -480,6 +492,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Bicycling"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -515,6 +528,7 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/Motorcycling"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
@@ -550,10 +564,11 @@
         </GridLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btnPacking"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="35dp"
+            android:background="@drawable/round_bg"
             android:text="Begin Packing"
             android:textColor="@android:color/white"
             android:textSize="18sp"
