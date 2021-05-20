@@ -131,6 +131,10 @@ public class PickItems extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < selected_items.size(); i++) {
+                    // adaug in baza de date
+                    // ...
+                }
                 Intent intent = new Intent(PickItems.this, SelectAction.class);
                 startActivity(intent);
             }

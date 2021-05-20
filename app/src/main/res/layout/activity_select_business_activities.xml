@@ -196,7 +196,7 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/Fancy_Dinner"
+                android:id="@+id/FancyDinner"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@color/black"
