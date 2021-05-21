@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -135,6 +136,10 @@ public class PickItems extends AppCompatActivity {
                     // adaug in baza de date
                     // ...
                 }
+
+                CheckedTextView business = findViewById(R.id.business);
+                CheckedTextView leisure = findViewById(R.id.leisure);
+
                 Intent intent = new Intent(PickItems.this, SelectAction.class);
                 startActivity(intent);
             }

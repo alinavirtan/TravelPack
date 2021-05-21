@@ -32,14 +32,17 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AddTripActivity extends AppCompatActivity {
-    EditText editText;
-    EditText date;
+    EditText editText;   // oras
+    EditText date;  // data plecare
     DatePickerDialog.OnDateSetListener setListener;
-    SeekBar seekBar;
+    SeekBar seekBar;  // numar de zile
     TextView nrOfDays;
-    CheckedTextView business;
-    CheckedTextView leisure;
+    CheckedTextView business;   // tip calatorie
+    CheckedTextView leisure;   // tip calatorie
     LatLng latLng;
+    int TripNo;   // id calatorie
+    DBHelper DB;
+    LoginActivity LA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,11 +176,15 @@ public class AddTripActivity extends AppCompatActivity {
 //                weatherRequest.ComputeRequest();
 
                 if (business.isChecked()) {
+                   // TripNo = DB.getMaxTripNo() + 1;
+                   // DB.insertTrip(TripNo, LA.email.toString(), editText.toString(), date.toString(), "business", seekBar.getProgress());
                     Intent intent = new Intent(AddTripActivity.this, SelectBusinessActivities.class);
                     startActivity(intent);
                 }
 
                 if (leisure.isChecked()) {
+                  //  TripNo = DB.getMaxTripNo() + 1;
+                    // DB.insertTrip(TripNo, LA.email.toString(), editText.toString(), date.toString(), "leisure", seekBar.getProgress());
                     Intent intent = new Intent(AddTripActivity.this, SelectLeisureActivities.class);
                     startActivity(intent);
                 }
