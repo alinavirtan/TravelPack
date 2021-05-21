@@ -40,9 +40,8 @@ public class AddTripActivity extends AppCompatActivity {
     CheckedTextView business;   // tip calatorie
     CheckedTextView leisure;   // tip calatorie
     LatLng latLng;
-    int TripNo;   // id calatorie
-    DBHelper DB;
-    LoginActivity LA;
+   // Integer TripNo;   // id calatorie
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

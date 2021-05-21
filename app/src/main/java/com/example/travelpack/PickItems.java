@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,6 +99,17 @@ public class PickItems extends AppCompatActivity {
         Intent mIntent = getIntent();
         String previousActivity = mIntent.getStringExtra("FROM_ACTIVITY");
 
+        DBHelper_Trips DB = new DBHelper_Trips(this);
+
+        CheckedTextView business = findViewById(R.id.business);
+        CheckedTextView leisure = findViewById(R.id.leisure);
+        EditText email = findViewById(R.id.inputEmail);
+        EditText editText = findViewById(R.id.inputDestination);
+        EditText date = findViewById(R.id.inputDate1);
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        Integer TripNo ;
+
+
         for (int i = 0; i < (MainActivity.activities).size(); i++) {
             String activity = (MainActivity.activities).get(i);
 
@@ -136,9 +149,6 @@ public class PickItems extends AppCompatActivity {
                     // adaug in baza de date
                     // ...
                 }
-
-                CheckedTextView business = findViewById(R.id.business);
-                CheckedTextView leisure = findViewById(R.id.leisure);
 
                 Intent intent = new Intent(PickItems.this, SelectAction.class);
                 startActivity(intent);
