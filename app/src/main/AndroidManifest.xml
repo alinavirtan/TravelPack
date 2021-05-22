@@ -20,8 +20,10 @@
         <activity android:name=".SelectBusinessActivities" />
         <activity android:name=".PickItems" />
         <activity android:name=".ViewTripsActivity" />
+        <activity android:name=".ViewItemsActivity"/>
         <activity android:name=".SelectAction" />
         <activity android:name=".MainActivity" >
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

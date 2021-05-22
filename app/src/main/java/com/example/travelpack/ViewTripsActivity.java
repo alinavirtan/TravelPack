@@ -42,7 +42,7 @@ public class ViewTripsActivity extends AppCompatActivity {
                     button.setTranslationY(-750);
                     button.setTextColor(Color.WHITE);
                     button.setBackgroundColor(0xFF6200EE);
-                    layout.addView(button);
+
                     button.setOnClickListener(new View.OnClickListener() {
 
                         @Override
@@ -51,6 +51,8 @@ public class ViewTripsActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+
+                    layout.addView(button);
                 } while (cursor.moveToNext());
             }
         }
