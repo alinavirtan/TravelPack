@@ -47,6 +47,7 @@ public class ViewTripsActivity extends AppCompatActivity {
 
                         @Override
                         public void onClick(View v) {
+                            TripNo = cursor.getInt(cursor.getColumnIndex("trip_no"));
                             Intent intent = new Intent(ViewTripsActivity.this, ViewItemsActivity.class);
                             startActivity(intent);
                         }
