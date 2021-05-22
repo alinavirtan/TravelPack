@@ -18,13 +18,6 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("create Table users(email TEXT primary key," +
                                          "username TEXT," +
                                          "password TEXT)");
-//        MyDB.execSQL("create Table trips(trip_no INTEGER primary key," +
-//                                        "user_email TEXT)");
-//                                        "destination TEXT," +
-//                                        "date TEXT," +
-//                                        "type TEXT,"+
-//                                        "no_days INTEGER,"+
-//                                        "foreign key(user_mail) references users(mail))");
 //        MyDB.execSQL("create Table luggage(id_luggage INTEGER primary key," +
 //                                           "name TEXT," +
 //                                           "trip_no INTEGER," +
@@ -36,7 +29,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
         MyDB.execSQL("drop Table if exists users");
-       // MyDB.execSQL("drop Table if exists trips");
        // MyDB.execSQL("drop Table if exists luggage");
         onCreate(MyDB);
     }

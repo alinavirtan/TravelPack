@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView registerLink;
     Button loginBtn;
     DBHelper DB;
+    static String email_trip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 String user_email = email.getText().toString();
                 String user_pass = password.getText().toString();
+                email_trip = user_email;
+
 
                 if (user_email.equals("") || user_pass.equals("")) {
                     Toast.makeText(LoginActivity.this, "Please enter all the field", Toast.LENGTH_SHORT).show();

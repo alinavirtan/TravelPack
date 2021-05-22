@@ -40,7 +40,10 @@ public class AddTripActivity extends AppCompatActivity {
     CheckedTextView business;   // tip calatorie
     CheckedTextView leisure;   // tip calatorie
     LatLng latLng;
-   // Integer TripNo;   // id calatorie
+    static String destination;
+    static String date_trip;
+    static String type;
+    static int days;
 
 
     @Override
@@ -74,7 +77,6 @@ public class AddTripActivity extends AppCompatActivity {
 
         editText.setFocusable(false);
         editText.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 (MainActivity.activities).clear();
@@ -100,6 +102,7 @@ public class AddTripActivity extends AppCompatActivity {
                                 month = month + 1;
                                 String date_string = dayOfMonth + "/" + month + "/" + year;
                                 date.setText(date_string);
+                                date_trip = date_string;
                             }
                         }, year, month, day);
                 datePickerDialog.show();
@@ -112,6 +115,7 @@ public class AddTripActivity extends AppCompatActivity {
                 int val = progress * (seekBar.getWidth() -  2 * seekBar.getThumbOffset()) / seekBar.getMax();
                 nrOfDays.setText(progress + "");
                 nrOfDays.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
+                days = progress;
             }
 
             @Override
@@ -175,15 +179,13 @@ public class AddTripActivity extends AppCompatActivity {
 //                weatherRequest.ComputeRequest();
 
                 if (business.isChecked()) {
-                   // TripNo = DB.getMaxTripNo() + 1;
-                   // DB.insertTrip(TripNo, LA.email.toString(), editText.toString(), date.toString(), "business", seekBar.getProgress());
+                    type = "business";
                     Intent intent = new Intent(AddTripActivity.this, SelectBusinessActivities.class);
                     startActivity(intent);
                 }
 
                 if (leisure.isChecked()) {
-                  //  TripNo = DB.getMaxTripNo() + 1;
-                    // DB.insertTrip(TripNo, LA.email.toString(), editText.toString(), date.toString(), "leisure", seekBar.getProgress());
+                    type = "leisure";
                     Intent intent = new Intent(AddTripActivity.this, SelectLeisureActivities.class);
                     startActivity(intent);
                 }
@@ -198,6 +200,7 @@ public class AddTripActivity extends AppCompatActivity {
             Place place = Autocomplete.getPlaceFromIntent(data);
 
             editText.setText(place.getName());
+            destination = editText.getText().toString();
 
             // pt weatherapi -> vreau sa iau coordonatele
             Log.d("Address: ", editText.getText().toString());

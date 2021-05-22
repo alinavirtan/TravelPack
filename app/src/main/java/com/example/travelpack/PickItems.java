@@ -101,13 +101,8 @@ public class PickItems extends AppCompatActivity {
 
         DBHelper_Trips DB = new DBHelper_Trips(this);
 
-        CheckedTextView business = findViewById(R.id.business);
-        CheckedTextView leisure = findViewById(R.id.leisure);
-        EditText email = findViewById(R.id.inputEmail);
-        EditText editText = findViewById(R.id.inputDestination);
-        EditText date = findViewById(R.id.inputDate1);
-        SeekBar seekBar = findViewById(R.id.seekBar);
-        Integer TripNo ;
+
+        Integer TripNo  = DB.getMaxTripNo() + 1;
 
 
         for (int i = 0; i < (MainActivity.activities).size(); i++) {
@@ -150,6 +145,8 @@ public class PickItems extends AppCompatActivity {
                     // ...
                 }
 
+                DB.insertTrip(TripNo, LoginActivity.email_trip, AddTripActivity.destination,
+                        AddTripActivity.date_trip, AddTripActivity.type, AddTripActivity.days);
                 Intent intent = new Intent(PickItems.this, SelectAction.class);
                 startActivity(intent);
             }
