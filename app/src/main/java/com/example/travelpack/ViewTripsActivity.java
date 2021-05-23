@@ -122,6 +122,13 @@ public class ViewTripsActivity extends AppCompatActivity {
                 switch (index) {
                     case 0:
                         // open
+                        String trip_to_open = arrayList.get(position);
+                        String[] open_tokens = trip_to_open.split(" - ");
+                        String open_name = open_tokens[0];
+                        String open_date = open_tokens[1];
+
+                        tripNo = DB.getTripDestDate(LoginActivity.email_trip, open_name, open_date);
+
                         Intent intent = new Intent(ViewTripsActivity.this, ViewItemsActivity.class);
                         startActivity(intent);
                         break;

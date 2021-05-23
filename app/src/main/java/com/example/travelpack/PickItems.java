@@ -100,7 +100,7 @@ public class PickItems extends AppCompatActivity {
         String previousActivity = mIntent.getStringExtra("FROM_ACTIVITY");
 
         DBHelper_Trips DB = new DBHelper_Trips(this);
-
+        DBHelper_Items DB_Items = new DBHelper_Items(this);
 
         Integer TripNo  = DB.getMaxTripNo() + 1;
 
@@ -140,9 +140,12 @@ public class PickItems extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Integer id_item = DB_Items.getMaxItemId() + 1;
                 for (int i = 0; i < selected_items.size(); i++) {
                     // adaug in baza de date
-                    // ...
+
+                    DB_Items.insertItem(id_item, selected_items.get(i), TripNo, LoginActivity.email_trip, true);
+                    id_item++;
                 }
 
                 DB.insertTrip(TripNo, LoginActivity.email_trip, AddTripActivity.destination,
