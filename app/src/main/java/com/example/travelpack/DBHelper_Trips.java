@@ -49,6 +49,25 @@ public class DBHelper_Trips extends SQLiteOpenHelper {
         return true;
     }
 
+    public Integer getTripDestDate(String email, String destination, String date) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from trips where user_email = ? and destination = ? and date = ?",
+                new String[] {email, destination, date});
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(cursor.getColumnIndex("trip_no"));
+        }
+
+        return -1;
+    }
+
+    public Boolean deleteTrip(Integer trip_no) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+       // MyDB.rawQuery("delete from trips where trip_no = " + trip_no, null);
+        MyDB.delete("trips", "trip_no = ?", new String[] {trip_no.toString()});
+
+        return true;
+    }
+
     public int getMaxTripNo() {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from trips where trip_no = (select max(trip_no) from trips)", null);
