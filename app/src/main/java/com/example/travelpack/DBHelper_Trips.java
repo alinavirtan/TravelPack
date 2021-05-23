@@ -62,7 +62,6 @@ public class DBHelper_Trips extends SQLiteOpenHelper {
 
     public Boolean deleteTrip(Integer trip_no) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-       // MyDB.rawQuery("delete from trips where trip_no = " + trip_no, null);
         MyDB.delete("trips", "trip_no = ?", new String[] {trip_no.toString()});
 
         return true;
