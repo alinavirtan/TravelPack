@@ -30,12 +30,19 @@
             android:id="@+id/my_trip_items"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="My Items"
+            android:text="My Luggage"
             android:gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:textSize="42sp"
             android:textStyle="bold"
             android:translationY="-350dp"/>
+
+        <ImageView
+            android:id="@+id/luggage_image"
+            android:layout_width="250dp"
+            android:layout_height="140dp"
+            android:src="@drawable/luggage"
+            android:translationY="-285dp" />
 
     </LinearLayout>
 </ScrollView>

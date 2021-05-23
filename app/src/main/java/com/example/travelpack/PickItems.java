@@ -33,7 +33,7 @@ public class PickItems extends AppCompatActivity {
         CheckBox checkBox = new CheckBox(getApplicationContext());
         checkBox.setText(item);
         checkBox.setTextSize(16);
-        checkBox.setTranslationY(-300);
+        checkBox.setTranslationY(-500);
         checkBox.setElegantTextHeight(true);
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -112,7 +112,7 @@ public class PickItems extends AppCompatActivity {
             textView.setText(activity);
             textView.setTextSize(20);
             textView.setTextColor(Color.BLUE);
-            textView.setTranslationY(-300);
+            textView.setTranslationY(-500);
             textView.setElegantTextHeight(true);
             textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             layout.addView(textView);
@@ -134,7 +134,7 @@ public class PickItems extends AppCompatActivity {
         button.setTypeface(button.getTypeface(), Typeface.BOLD);
         button.setTextSize(18);
         button.setTextColor(Color.WHITE);
-        button.setBackgroundColor(Color.BLUE);
+        button.setBackgroundColor(0xFF6200EE);
         layout.addView(button);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +144,7 @@ public class PickItems extends AppCompatActivity {
                 for (int i = 0; i < selected_items.size(); i++) {
                     // adaug in baza de date
 
-                    DB_Items.insertItem(id_item, selected_items.get(i), TripNo, LoginActivity.email_trip, true);
+                    DB_Items.insertItem(id_item, selected_items.get(i), TripNo, LoginActivity.email_trip, false);
                     id_item++;
                 }
 

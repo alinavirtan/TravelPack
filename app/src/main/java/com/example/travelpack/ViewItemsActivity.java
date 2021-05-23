@@ -63,7 +63,7 @@ public class ViewItemsActivity extends AppCompatActivity {
         CheckBox checkBox = new CheckBox(getApplicationContext());
         checkBox.setText(item.name);
         checkBox.setTextSize(16);
-        checkBox.setTranslationY(-300);
+        checkBox.setTranslationY(-700);
         checkBox.setElegantTextHeight(true);
 
         /* the checkbox is shown initially as checked if the item has already been picked */
@@ -128,7 +128,7 @@ public class ViewItemsActivity extends AppCompatActivity {
         button.setTypeface(button.getTypeface(), Typeface.BOLD);
         button.setTextSize(18);
         button.setTextColor(Color.WHITE);
-        button.setBackgroundColor(Color.BLUE);
+        button.setBackgroundColor(0xFF6200EE);
         layout.addView(button);
 
         button.setOnClickListener(new View.OnClickListener() {
