@@ -83,4 +83,11 @@ public class DBHelper_Trips extends SQLiteOpenHelper {
                 new String[] {email});
         return cursor;
     }
+
+    public Cursor getTrip(Integer trip_no) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from trips where trip_no = ? ",
+                new String[] {trip_no.toString()});
+        return cursor;
+    }
 }

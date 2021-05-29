@@ -62,7 +62,7 @@ public class WeatherData {
         this.latLng = latLng;
         this.daysNum = Integer.parseInt(daysNum);
         this.context = context;
-        this.sdformat = new SimpleDateFormat("yyyy-MM-dd");
+        this.sdformat = new SimpleDateFormat("dd/MM/yyyy");
         computeDates(startDate);
         dailyForecast = new ArrayList<>();
     }
@@ -89,7 +89,7 @@ public class WeatherData {
         }
     }
 
-    public void ComputeRequest() {
+    public void ComputeRequest(OnDataLoaded onDataLoaded) {
         String tmpURL = "";
         final String[] output = new String[7];
 
@@ -156,8 +156,8 @@ public class WeatherData {
 
                             Log.d("WEATHER INFO: ", output[i]);
                         }
-
                     }
+                    onDataLoaded.onDataLoaded(dailyForecast);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

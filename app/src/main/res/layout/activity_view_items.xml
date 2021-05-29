@@ -39,10 +39,35 @@
 
         <ImageView
             android:id="@+id/luggage_image"
-            android:layout_width="250dp"
-            android:layout_height="140dp"
+            android:layout_width="230dp"
+            android:layout_height="110dp"
             android:src="@drawable/luggage"
-            android:translationY="-285dp" />
+            android:translationY="-300dp" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/weather"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:src="@drawable/ic_clear"-->
+<!--            android:translationY="-255dp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/temp"-->
+<!--            android:layout_width="550dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:src="@drawable/ic_temp"-->
+<!--            android:translationY="-345dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/weather_temp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="clear sky                 18 C"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="22sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:translationY="-340dp"/>-->
 
     </LinearLayout>
 </ScrollView>
